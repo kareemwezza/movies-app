@@ -4,4 +4,17 @@ span i {
 
 ul li {
   list-style: none;
+  margin-bottom: 10px;
+  a {
+    text-decoration: none;
+    color: var(--text-color-secondary);
+  }
+}
+
+span.social-icon {
+  margin-inline: 1rem;
+  color: var(--text-color-secondary);
+  i {
+    font-size: 1.25rem;
+  }
 }
