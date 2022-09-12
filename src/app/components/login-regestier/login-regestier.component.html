@@ -26,10 +26,10 @@
     <input type="password" placeholder="Confirm Your Password">
   </div>
   <div *ngIf="type === 'login'">
-    <p>Don't have an account?<a routerLink="register">Create an account</a></p>
+    <p>Don't have an account?<a routerLink="../register">Create an account</a></p>
   </div>
   <div *ngIf="type === 'register'">
-    <p>Already have an Account!<a routerLink="login">Sign In</a></p>
+    <p>Already have an Account!<a routerLink="../login">Sign In</a></p>
   </div>
   <button type="button" class="text-white bg-blue-500
    mt-2  px-3 py-3 font-bold text-based border-round cursor-pointer transition-all
