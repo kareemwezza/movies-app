@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
-import { ButtonModule } from "primeng/button";
+import { ButtonModule } from 'primeng/button';
 import { LoginComponent } from './pages/login/login.component';
 import { RegestierComponent } from './pages/regestier/regestier.component';
-import { LoginRegestierComponent } from './components/login-regestier/login-regestier.component';
-import {FormsModule} from "@angular/forms";
+import { LoginRegisterComponent } from './components/login-register/login-register.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,15 +20,10 @@ import {FormsModule} from "@angular/forms";
     HomeComponent,
     LoginComponent,
     RegestierComponent,
-    LoginRegestierComponent
+    LoginRegisterComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        ButtonModule,
-        FormsModule
-    ],
+  imports: [BrowserModule, AppRoutingModule, ButtonModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

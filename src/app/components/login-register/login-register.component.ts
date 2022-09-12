@@ -2,10 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'LoginRegister',
-  templateUrl: './login-regestier.component.html',
-  styleUrls: ['./login-regestier.component.scss'],
+  templateUrl: './login-register.component.html',
+  styleUrls: ['./login-register.component.scss'],
 })
-export class LoginRegestierComponent implements OnInit {
+export class LoginRegisterComponent implements OnInit {
   constructor() {}
 
   @Input() type: String = 'login';
