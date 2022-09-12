@@ -139,7 +139,7 @@
   --yellow-200:#f6de95;
   --yellow-300:#f2d066;
   --yellow-400:#eec137;
-  --yellow-500:#eab308;
+  --yellow-500:#f2c112;
   --yellow-600:#c79807;
   --yellow-700:#a47d06;
   --yellow-800:#816204;
@@ -159,7 +159,7 @@
   --pink-200:#f7b0d3;
   --pink-300:#f38ec0;
   --pink-400:#f06bac;
-  --pink-500:#ec4899;
+  --pink-500:#e2515b;
   --pink-600:#c93d82;
   --pink-700:#a5326b;
   --pink-800:#822854;
@@ -169,7 +169,7 @@
   --indigo-200:#bcbdf9;
   --indigo-300:#9ea0f6;
   --indigo-400:#8183f4;
-  --indigo-500:#6366f1;
+  --indigo-500:#8970ea;
   --indigo-600:#5457cd;
   --indigo-700:#4547a9;
   --indigo-800:#363885;
@@ -2049,22 +2049,22 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
 }
 
 .p-button.p-button-info, .p-buttonset.p-button-info > .p-button, .p-splitbutton.p-button-info > .p-button {
-  color: #1c2127;
-  background: #93C5FD;
-  border: 1px solid #93C5FD;
+  color: #fff2e2;
+  background: #1c1c25;
+  border: 1px solid #1c1c25;
 }
 .p-button.p-button-info:enabled:hover, .p-buttonset.p-button-info > .p-button:enabled:hover, .p-splitbutton.p-button-info > .p-button:enabled:hover {
-  background: #6cb0fc;
-  color: #1c2127;
-  border-color: #6cb0fc;
+  background: #17171d;
+  color: #fff2e2;
+  border-color: #17171d;
 }
 .p-button.p-button-info:enabled:focus, .p-buttonset.p-button-info > .p-button:enabled:focus, .p-splitbutton.p-button-info > .p-button:enabled:focus {
-  box-shadow: 0 0 0 1px #b3d6fe;
+  box-shadow: 0 0 0 1px #17171d;
 }
 .p-button.p-button-info:enabled:active, .p-buttonset.p-button-info > .p-button:enabled:active, .p-splitbutton.p-button-info > .p-button:enabled:active {
-  background: #449bfc;
-  color: #1c2127;
-  border-color: #449bfc;
+  background: #17171d;
+  color: #fff5f5;
+  border-color: #17171d;
 }
 .p-button.p-button-info.p-button-outlined, .p-buttonset.p-button-info > .p-button.p-button-outlined, .p-splitbutton.p-button-info > .p-button.p-button-outlined {
   background-color: transparent;
@@ -6214,7 +6214,7 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
   box-shadow: 0 0 0 2px #1c2127, 0 0 0 4px rgba(134, 239, 172, 0.7), 0 1px 2px 0 rgba(0, 0, 0, 0);
 }
 .p-button.p-button-info:enabled:focus {
-  box-shadow: 0 0 0 2px #1c2127, 0 0 0 4px rgba(147, 197, 253, 0.7), 0 1px 2px 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0 2px #1c2127, 0 0 0 4px rgba(32, 34, 37, 0.7), 0 1px 2px 0 rgba(0, 0, 0, 0);
 }
 .p-button.p-button-warning:enabled:focus {
   box-shadow: 0 0 0 2px #1c2127, 0 0 0 4px rgba(252, 211, 77, 0.7), 0 1px 2px 0 rgba(0, 0, 0, 0);
