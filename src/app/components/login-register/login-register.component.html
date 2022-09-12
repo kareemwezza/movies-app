@@ -2,15 +2,17 @@
 
 <form action="" class="flex flex-column  ">
   <h3>{{type.toUpperCase()}}</h3>
-  <div *ngIf="type === 'register'">
-    <label for="">First Name</label>
-    <input type="text" placeholder="Your First Name">
-  </div>
+  <ng-container *ngIf="type === 'register'">
+    <div>
+      <label for="">First Name</label>
+      <input type="text" placeholder="Your First Name">
+    </div>
 
-  <div *ngIf="type === 'register'">
-    <label for="">Last Name</label>
-    <input type="text" [(ngModel)]="lastName" placeholder="Your Last Name">
-  </div>
+    <div>
+      <label for="">Last Name</label>
+      <input type="text" [(ngModel)]="lastName" placeholder="Your Last Name">
+    </div>
+  </ng-container>
 
   <div>
     <label for="">username</label>
