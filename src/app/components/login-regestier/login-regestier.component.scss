@@ -6,7 +6,7 @@
   justify-content: center;
 
   form {
-    background-color: var(--gray-700);
+    background-color: var(--bluegray-900);
     padding: 2rem 1.5rem;
     border-radius: .5rem;
     width: 100%;
@@ -18,7 +18,7 @@
       text-align: center;
       letter-spacing: 2px;
       font-size: 26px;
-      color: #3b82f6;
+      color: var(--primary-color);
     }
 
     > div {
@@ -39,7 +39,7 @@
       a {
         text-decoration: underline;
         cursor: pointer;
-        color: #3b82f6;
+        color: var(--primary-300);
       }
 
       label {

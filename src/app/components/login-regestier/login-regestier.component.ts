@@ -1,23 +1,19 @@
-import {Component, Input, OnInit} from '@angular/core';
-import { FormsModule } from '@angular/forms'
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'LoginRegister',
   templateUrl: './login-regestier.component.html',
-  styleUrls: ['./login-regestier.component.scss']
+  styleUrls: ['./login-regestier.component.scss'],
 })
 export class LoginRegestierComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  @Input() type: String = 'login';
+  firstName: string = '';
+  lastName: string = '';
+  username: string = '';
+  password: string = '';
+  confirmPassword: string = '';
 
-  @Input() type: String = 'login'
-  firstName: string = ''
-  lastName: string = ''
-  username: string = ''
-  password: string = ''
-  confirmPassword: string = ''
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
