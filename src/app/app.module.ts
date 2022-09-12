@@ -10,6 +10,7 @@ import { ButtonModule } from "primeng/button";
 import { LoginComponent } from './pages/login/login.component';
 import { RegestierComponent } from './pages/regestier/regestier.component';
 import { LoginRegestierComponent } from './components/login-regestier/login-regestier.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -21,11 +22,12 @@ import { LoginRegestierComponent } from './components/login-regestier/login-rege
     RegestierComponent,
     LoginRegestierComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ButtonModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ButtonModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

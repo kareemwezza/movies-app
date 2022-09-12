@@ -1,1 +1,39 @@
-<p>login-regestier works!</p>
+<div class="form-container">
+
+<form action="" class="flex flex-column  ">
+  <h3>{{type.toUpperCase()}}</h3>
+  <div *ngIf="type === 'register'">
+    <label for="">First Name</label>
+    <input type="text" placeholder="Your First Name">
+  </div>
+
+  <div *ngIf="type === 'register'">
+    <label for="">Last Name</label>
+    <input type="text" [(ngModel)]="lastName" placeholder="Your Last Name">
+  </div>
+
+  <div>
+    <label for="">username</label>
+    <input type="text" placeholder="username">
+  </div>
+
+  <div>
+    <label for="">Password</label>
+    <input type="password" placeholder="Your Password">
+  </div>
+  <div *ngIf="type === 'register'">
+    <label for="">Confirm Password</label>
+    <input type="password" placeholder="Confirm Your Password">
+  </div>
+  <div *ngIf="type === 'login'">
+    <p>Don't have an account?<a routerLink="register">Create an account</a></p>
+  </div>
+  <div *ngIf="type === 'register'">
+    <p>Already have an Account!<a routerLink="login">Sign In</a></p>
+  </div>
+  <button type="button" class="text-white bg-blue-500
+   mt-2  px-3 py-3 font-bold text-based border-round cursor-pointer transition-all
+   transition-duration-200 outline-none border-none hover:bg-blue-600
+    active:bg-blue-800 ">{{type.toUpperCase()}}</button>
+</form>
+</div>
