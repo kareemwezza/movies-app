@@ -7,3 +7,8 @@ body {
   background-color: var(--surface-ground);
   font-family: var(--font-family);
 }
+
+a {
+  text-decoration: none;
+  color: var(--text-color-secondary);
+}
