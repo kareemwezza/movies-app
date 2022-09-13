@@ -1,0 +1,82 @@
+.moviepic
+{
+    width:225px;
+    height: 320px;
+ 
+}
+.rate
+{
+    display: block;
+    width: 50px;
+    border: 10px;
+    border-radius: 20px;
+    color:rgb(165, 162, 162);
+    position: relative;
+    left: 170px;
+    text-align: center;
+
+    bottom:307px;
+    background-color: black;
+
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 2s ease;
+    background-color: var(--surface-overlay);
+  }
+  .moviediv
+  {
+    position: relative;
+    width:225px;
+    height: 320px;
+
+  }
+.moviediv:hover 
+{
+   cursor: pointer;
+    .overlay
+    {
+        opacity: 90%;
+    }
+}
+
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+   
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .text_film
+  {
+    color:var(--gray-100);
+  }
+
+  .rating {
+    position: absolute;
+    font-size: 2.5em;
+    right: 170px;
+    top: 13px;
+    
+    color: #fc0;
+  }
+ 
+.rating span {
+    position: absolute;
+    font-size: 18px;
+    right: 9px;
+    color:black;
+    top: 9px;
+}
+
+

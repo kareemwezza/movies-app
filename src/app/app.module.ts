@@ -8,17 +8,19 @@ import { ScrollTopModule } from 'primeng/scrolltop';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { MessageService } from 'primeng/api';
+import { ChipModule } from 'primeng/chip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
+import { MovieComponent } from './components/movie/movie.component';
 import { ActorComponent } from './components/actor/actor.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegestierComponent } from './pages/regestier/regestier.component';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
-import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { MessageService } from 'primeng/api';
     RegestierComponent,
     LoginRegisterComponent,
     ActorComponent,
+    MovieComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { MessageService } from 'primeng/api';
     BrowserAnimationsModule,
     MessagesModule,
     MessageModule,
+    ChipModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],
