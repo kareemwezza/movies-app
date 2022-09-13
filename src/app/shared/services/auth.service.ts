@@ -8,6 +8,15 @@ import { Router } from '@angular/router';
 
 let { apiUrl } = environment;
 
+interface AuthResponse {
+  user_id: number;
+  access_token: string;
+  email: string;
+  mobile: string;
+  username: string;
+  expire: number;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -17,7 +26,7 @@ export class AuthService {
 
   login(email: string, password: string) {
     return this._http
-      .post<any>(`${apiUrl}/login`, {
+      .post<AuthResponse>(`${apiUrl}/login`, {
         email: email,
         password: password,
       })
@@ -25,12 +34,12 @@ export class AuthService {
         catchError(this._handleError),
         tap(resData => {
           this._handleAuthentication(
-            resData.id,
+            resData.user_id,
             resData.username,
             resData.email,
             resData.mobile,
-            resData.token,
-            resData.expiresIn
+            resData.access_token,
+            resData.expire
           );
         })
       );
@@ -38,7 +47,7 @@ export class AuthService {
 
   register(email: string, username: string, mobile: number, password: string) {
     return this._http
-      .post<any>(`${apiUrl}/user/register`, {
+      .post<AuthResponse>(`${apiUrl}/user/register`, {
         email: email,
         username: username,
         mobile: mobile,
@@ -48,12 +57,12 @@ export class AuthService {
         catchError(this._handleError),
         tap(resData => {
           this._handleAuthentication(
-            resData.id,
+            resData.user_id,
             resData.username,
             resData.email,
             resData.mobile,
-            resData.token,
-            resData.expiresIn
+            resData.access_token,
+            resData.expire
           );
         })
       );
@@ -90,7 +99,7 @@ export class AuthService {
     id: number,
     username: string,
     email: string,
-    mobile: number,
+    mobile: string,
     token: string,
     expiresIn: number
   ) {

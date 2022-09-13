@@ -9,10 +9,17 @@ import { HomeComponent } from './pages/home/home.component';
 
 import { ButtonModule } from 'primeng/button';
 import { ScrollTopModule } from 'primeng/scrolltop';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent],
-  imports: [BrowserModule, AppRoutingModule, ButtonModule, ScrollTopModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    ButtonModule,
+    ScrollTopModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

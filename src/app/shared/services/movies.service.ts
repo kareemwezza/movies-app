@@ -1,27 +1,27 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 
-import {environment} from "src/environments/environment";
+import { environment } from 'src/environments/environment';
+import Movie from '../../types/movie';
 
-let {apiUrl} = environment
+let { apiUrl } = environment;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MoviesService {
-
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) {}
 
   getMovies(category?: string) {
-    category && (apiUrl = `${apiUrl}?category=${category}`)
-    return this._http.get<Movie[]>(apiUrl)
+    category && (apiUrl = `${apiUrl}?category=${category}`);
+    return this._http.get<Movie[]>(apiUrl);
   }
 
   getRecentMovies() {
-    return this._http.get<Movie[]>(apiUrl)
+    return this._http.get<Movie[]>(apiUrl);
   }
 
   getMovie(id: number) {
-    return this._http.get<Movie>(apiUrl)
+    return this._http.get<Movie>(apiUrl);
   }
 }

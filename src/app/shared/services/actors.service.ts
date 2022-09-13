@@ -13,10 +13,10 @@ export class ActorsService {
   constructor(private _http: HttpClient) {}
 
   getActors() {
-    return this._http.get<Actor[]>(apiUrl);
+    return this._http.get<Actor[]>(`${apiUrl}/actor/getActors`);
   }
 
   getActor(id: number) {
-    return this._http.get<Actor>(apiUrl);
+    return this._http.get<Actor>(`${apiUrl}/actor/${id}`);
   }
 }

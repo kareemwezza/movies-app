@@ -1,4 +1,5 @@
 export default interface Actor {
-  name: string;
-  id: number;
+  actorId: number;
+  actorName: string;
+  imagePath: string;
 }

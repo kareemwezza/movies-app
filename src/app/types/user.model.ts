@@ -3,7 +3,7 @@ export default class User {
     public id: number,
     public username: string,
     public email: string,
-    public mobile: number,
+    public mobile: string,
     private _token?: string,
     private _expiresIn?: Date
   ) {}
