@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ActorComponent } from './components/actor/actor.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegestierComponent } from './pages/regestier/regestier.component';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
@@ -28,6 +29,7 @@ import { MessageService } from 'primeng/api';
     LoginComponent,
     RegestierComponent,
     LoginRegisterComponent,
+    ActorComponent,
   ],
   imports: [
     BrowserModule,

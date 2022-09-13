@@ -1,0 +1,46 @@
+.actor_image
+{
+    
+    position: relative;
+    width :15em;
+    border-radius: 80%;
+    display: flex;
+    height: 250px;
+    justify-content: center;
+    overflow: hidden;
+  
+}
+
+  .actor_image:hover 
+{
+   cursor: pointer;
+    .overlay
+    {
+        opacity: 90%;
+         width: 18em;
+    }
+   
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 2s ease;
+    background-color: var(--surface-overlay);
+  }
+.text {
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+   
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+ 
