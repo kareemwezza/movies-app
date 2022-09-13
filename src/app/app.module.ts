@@ -6,6 +6,7 @@ import { ButtonModule } from 'primeng/button';
 import { OffersModule } from './components/offers/offers.module';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SkeletonModule } from 'primeng/skeleton';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { MessageService } from 'primeng/api';
@@ -21,6 +22,8 @@ import { ActorComponent } from './components/actor/actor.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegestierComponent } from './pages/regestier/regestier.component';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
+import { ActorsSectionComponent } from './components/actors-section/actors-section.component';
+import { MoviesSectionComponent } from './components/movies-section/movies-section.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,8 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
     RegestierComponent,
     LoginRegisterComponent,
     ActorComponent,
+    ActorsSectionComponent,
+    MoviesSectionComponent,
     MovieComponent,
   ],
   imports: [
@@ -45,6 +50,7 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
     BrowserAnimationsModule,
     MessagesModule,
     MessageModule,
+    SkeletonModule,
     ChipModule,
   ],
   providers: [MessageService],
