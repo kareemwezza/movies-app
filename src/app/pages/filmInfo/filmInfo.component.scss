@@ -1,0 +1,105 @@
+.container {
+    margin: 2rem 0;
+
+    .movie-preview {
+        .img-container {
+            width: 600px;
+            height: 400px;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            &:after {
+                content: '14+';
+                position: absolute;
+                background-color: rgba(28,28,37,0.9);
+                top: 15px;
+                right: 15px;
+                padding: 0.25rem 1.3rem;
+                border-radius:5px;
+            }
+
+            .watch {
+                clip-path: polygon(0 0, 100% 50%, 0 100%);
+                width: 50px;
+                height: 50px;
+                background: #fff;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                display: none;
+            }
+
+            &:hover {
+                cursor: pointer;
+                img {
+
+                    opacity: .4;
+                }
+
+                .watch {
+                    display: block;
+                }
+
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: 20% 20%;
+            }
+
+        }
+        .movie-desc {
+            margin-top: 24px;
+
+            .movie-title {
+                font-size: 34px;
+            }
+
+            .movie-details {
+                display: flex;
+                gap: 1rem;
+                margin-top: 10px;
+                span {
+                    background: var( --gray-600);
+                    padding: .5rem 1rem;
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+    
+                    .rating {
+                        width: 16px;
+                        position: relative;
+                        top: -1px;
+                    }
+                }
+            }
+
+            .movie-more-details {
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                max-width: 600px;
+            }
+        }
+    }
+
+    .suggestions {
+        margin-top: 4rem;
+
+        .suggestions-header {
+            font-size: 28px;
+            letter-spacing: .5px;
+            &::first-letter {
+                color: var(--primary-color);
+                font-size: 30px;
+            }
+        }
+    }
+}
+
