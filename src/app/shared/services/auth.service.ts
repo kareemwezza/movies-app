@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Subject, catchError, throwError, tap } from 'rxjs';
+import { catchError, throwError, tap, BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { environment } from '../../../environments/environment';
 import User from '../../types/user.model';
+import { Router } from '@angular/router';
 
 let { apiUrl } = environment;
 
@@ -11,12 +12,12 @@ let { apiUrl } = environment;
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private _http: HttpClient) {}
-  user$ = new Subject<User>();
+  constructor(private _http: HttpClient, private _router: Router) {}
+  user$ = new BehaviorSubject<User | null>(null);
 
   login(email: string, password: string) {
     return this._http
-      .post<any>(apiUrl, {
+      .post<any>(`${apiUrl}/login`, {
         email: email,
         password: password,
       })
@@ -37,7 +38,7 @@ export class AuthService {
 
   register(email: string, username: string, mobile: number, password: string) {
     return this._http
-      .post<any>(apiUrl, {
+      .post<any>(`${apiUrl}/user/register`, {
         email: email,
         username: username,
         mobile: mobile,
@@ -58,6 +59,32 @@ export class AuthService {
       );
   }
 
+  logout() {
+    this.user$.next(null);
+    this._router.navigate(['/login']);
+    localStorage.removeItem('userDate');
+  }
+
+  autoAuth() {
+    const storage = localStorage.getItem('userData');
+    if (!storage) {
+      return;
+    }
+    const data = JSON.parse(storage);
+    const loadedUser = new User(
+      data.id,
+      data.username,
+      data.email,
+      data.mobile,
+      data._token,
+      new Date(data._expiresIn)
+    );
+    // check if the user's token is not expired
+    if (loadedUser.token) {
+      this.user$.next(loadedUser);
+    }
+  }
+
   // Authenticated user are piped to the App
   private _handleAuthentication(
     id: number,
@@ -69,7 +96,9 @@ export class AuthService {
   ) {
     const expiryDate = new Date(new Date().getTime() + 1000 * expiresIn);
     const newUser = new User(id, username, email, mobile, token, expiryDate);
+    // Emit new created user to the app
     this.user$.next(newUser);
+    localStorage.setItem('userData', JSON.stringify(newUser));
   }
 
   // Error Handling Observable
