@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActorsService } from '../../shared/services/actors.service';
+import Movie from '../../types/movie';
+import { MoviesService } from '../../shared/services/movies.service';
 
 @Component({
   selector: 'app-home',
@@ -8,14 +10,36 @@ import { ActorsService } from '../../shared/services/actors.service';
 })
 export class HomeComponent implements OnInit {
   loading: boolean = true;
-  constructor(private _actorService: ActorsService) {}
+  recentMovies: Movie[] = [];
+  constructor(
+    private _actorService: ActorsService,
+    private _moviesService: MoviesService
+  ) {}
 
   ngOnInit(): void {
     setTimeout(() => {
       this.loading = false;
-    }, 10000);
+      this.recentMovies = [
+        {
+          movieName: 'A',
+          movieId: 1,
+          category: 'a',
+          image: '',
+          rating: '',
+          year: '1',
+        },
+      ];
+    }, 1000);
     this._actorService.getActors().subscribe({
-      next: value => console.log(value),
+      next: value => {
+        console.log(value);
+      },
+    });
+    this._moviesService.getRecentMovies().subscribe({
+      next: value => {
+        console.log(value);
+        this.loading = false;
+      },
     });
   }
 }

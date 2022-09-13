@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import Actor from '../../types/actor';
+import Movie from '../../types/movie';
 
 @Component({
   selector: 'app-movies-section',
@@ -9,7 +9,7 @@ import Actor from '../../types/actor';
 export class MoviesSectionComponent implements OnInit {
   @Input() header: string = 'Top Movies';
   @Input() loading: boolean = true;
-  @Input() list!: Actor[];
+  @Input() list: Movie[] = [];
   constructor() {}
 
   ngOnInit(): void {}
