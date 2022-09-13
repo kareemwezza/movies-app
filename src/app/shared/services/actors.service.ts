@@ -1,9 +1,22 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { environment } from 'src/environments/environment';
+import Actor from '../../types/actor';
+
+let { apiUrl } = environment;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ActorsService {
+  constructor(private _http: HttpClient) {}
 
-  constructor() { }
+  getActors() {
+    return this._http.get<Actor[]>(`${apiUrl}/actor/getActors`);
+  }
+
+  getActor(id: number) {
+    return this._http.get<Actor>(`${apiUrl}/actor/${id}`);
+  }
 }
