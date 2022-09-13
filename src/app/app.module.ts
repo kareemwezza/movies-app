@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
+import { OffersModule } from './components/offers/offers.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +14,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegestierComponent } from './pages/regestier/regestier.component';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
-
 
 @NgModule({
   declarations: [
@@ -25,7 +25,15 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
     RegestierComponent,
     LoginRegisterComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ButtonModule, FormsModule, ScrollTopModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ButtonModule,
+    FormsModule,
+    OffersModule,
+    ScrollTopModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
