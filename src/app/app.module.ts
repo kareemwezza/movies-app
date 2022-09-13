@@ -6,6 +6,8 @@ import { ButtonModule } from 'primeng/button';
 import { OffersModule } from './components/offers/offers.module';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +17,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegestierComponent } from './pages/regestier/regestier.component';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -35,8 +38,10 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
     HttpClientModule,
     ScrollTopModule,
     BrowserAnimationsModule,
+    MessagesModule,
+    MessageModule,
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

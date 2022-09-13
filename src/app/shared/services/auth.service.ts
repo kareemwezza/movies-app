@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 
 let { apiUrl } = environment;
 
-interface AuthResponse {
+export interface AuthResponse {
   user_id: number;
   access_token: string;
   email: string;
@@ -45,7 +45,7 @@ export class AuthService {
       );
   }
 
-  register(email: string, username: string, mobile: number, password: string) {
+  register(email: string, username: string, mobile: string, password: string) {
     return this._http
       .post<AuthResponse>(`${apiUrl}/user/register`, {
         email: email,
