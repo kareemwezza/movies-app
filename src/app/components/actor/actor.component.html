@@ -1,10 +1,10 @@
 
-<div class="actor_image">
-    <img src="assets/images/therock.jpg" width=100%>
+<div class="actor_image" (click)="gotoprofile()">
+    <img src={{actor.actorImagePath}} width="100%" >
     <div class="overlay">
         <div class="text">
             <div>
-                <p ><strong>Dwayne Johnson</strong></p>
+                <p ><strong>{{actor.actorName}} </strong></p>
             </div>
         </div>
     </div>

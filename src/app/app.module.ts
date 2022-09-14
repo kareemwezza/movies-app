@@ -28,6 +28,7 @@ import { ActorsSectionComponent } from './components/actors-section/actors-secti
 import { MoviesSectionComponent } from './components/movies-section/movies-section.component';
 import { IntroComponent } from './components/intro/intro.component';
 import { SearchComponent } from './pages/search/search.component';
+import { ActorprofileComponent } from './components/actorprofile/actorprofile.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { SearchComponent } from './pages/search/search.component';
     FilmInfoComponent,
     IntroComponent,
     SearchComponent,
+    ActorprofileComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RegestierComponent } from './pages/regestier/regestier.component';
 import { SearchComponent } from './pages/search/search.component';
+import { ActorprofileComponent } from './components/actorprofile/actorprofile.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'movie/:id',
     component: FilmInfoComponent,
+  },
+  {
+    path: 'actor/:id',
+    component: ActorprofileComponent,
   },
   {
     path: '**',

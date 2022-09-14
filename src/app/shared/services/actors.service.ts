@@ -17,7 +17,7 @@ export class ActorsService {
   }
 
   getActor(id: number) {
-    return this._http.get<Actor>(`${apiUrl}/actor/getActor/${id}`);
+    return this._http.get<Actor>(`${apiUrl}/actor/${id}`);
   }
 
   getActorByName(name: string) {

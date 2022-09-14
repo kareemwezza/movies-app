@@ -1,5 +1,8 @@
+import Movie from "./movie";
+
 export default interface Actor {
   actorId: number;
   actorName: string;
-  imagePath: string;
+  actorImagePath: string;
+  movies:Movie[];
 }
