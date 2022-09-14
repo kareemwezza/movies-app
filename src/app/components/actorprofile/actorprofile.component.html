@@ -1,0 +1,15 @@
+<div class="card center">
+    <img src={{actor.actorImagePath}} alt="Avatar" style="width:5cm; height:7cm">
+    <div class="container">
+      <h2><b>{{actor.actorName}}</b></h2> 
+    </div >
+  </div>
+  <div class="grid">
+    <ng-container *ngIf="list">
+        <div *ngFor="let item of list" class="lg:col-2 ">
+          <app-movie [movie]="item" ></app-movie>
+        </div>
+    </ng-container>
+</div>
+
+

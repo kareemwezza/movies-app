@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
+import Actor from 'src/app/types/actor';
 
 @Component({
   selector: 'app-actor',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./actor.component.scss']
 })
 export class ActorComponent implements OnInit {
-
-  constructor() { }
+  @Input() actor!: Actor;
+  constructor( private router : Router) { }
 
   ngOnInit(): void {
   }
+  gotoprofile()
+  {
+    this.router.navigate(['/actor', this.actor.actorId])
 
+  }
 }
