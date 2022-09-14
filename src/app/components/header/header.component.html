@@ -1,8 +1,22 @@
-<div class="topnav">
-    <a href="#" style=" font-size: 30px;"><img src="https://icons.iconarchive.com/icons/designbolts/free-multimedia/256/Film-icon.png" alt="" width="18" height="100%" class="d-inline-block align-text-top">
+<div class="container">
+  <div class="topnav flex justify-content-between align-items-center">
+    <div class="header-logo">
+      <a href="#" style=" font-size: 30px;"><img src="https://icons.iconarchive.com/icons/designbolts/free-multimedia/256/Film-icon.png" alt="" width="18" height="100%" class="d-inline-block align-text-top">
         Filmna</a>
-    <a href="#" routerLink="/search" class="search_bar">Search</a>
-    <a href="#" style="float: right;" routerLink="/profile"><i class=" fa fa-solid fa-user icon_user"></i></a>
-    <a href="#" style="float: right;" routerLink="/login">Login</a>
-    <a href="#" style="float: right;" routerLink="/register">Register</a>
+    </div>
+    <div class="header-rt-content flex justify-content-between col ml-6" [class.myMenu] = "showMobileMenu" >
+      <div class="navigation">
+        <a href="#" routerLink="/search" class="search_bar">Search</a>
+       </div>
+      <div>
+        <a routerLink="/profile"><i class=" fa fa-solid fa-user icon_user"></i></a>
+        <a routerLink="/login">Login</a>
+        <a routerLink="/register">Register</a>
+      </div>
+    </div>
+    <div class="nav-menu-icon" (click)="toggleMenu()">
+      <i class="pi pi-bars" style="font-size: 2rem"></i>
+    </div>
+
   </div>
+</div>
