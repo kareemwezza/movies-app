@@ -18,7 +18,7 @@ export class LoginRegisterComponent implements OnInit {
 
   @Input() type: String = 'login';
   username: string = 'wezza';
-  email: string = 'wezzza@gmail.com';
+  email: string = 'wezza@gmail.com';
   mobile: string = '12345678900';
   password: string = '123456';
   confirmPassword: string = '123456';
@@ -43,8 +43,10 @@ export class LoginRegisterComponent implements OnInit {
         if (this.type === 'login') {
           this._router.navigate(['']);
         } else {
-          this._router.navigate(['login']);
           this.showMessage('info');
+          setTimeout(() => {
+            this._router.navigate(['login']);
+          }, 1000);
           console.log(resData);
         }
       },
