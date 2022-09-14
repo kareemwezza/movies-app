@@ -8,6 +8,7 @@ export default interface Movie {
   image: string;
   description?: string;
   year: string;
+  age:number;
   rating: string;
   time?: string;
   video?: string;
