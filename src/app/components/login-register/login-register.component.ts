@@ -18,10 +18,10 @@ export class LoginRegisterComponent implements OnInit {
 
   @Input() type: String = 'login';
   username: string = 'wezza';
-  email: string = 'alaa@email.cm';
+  email: string = 'wezzza@gmail.com';
   mobile: string = '12345678900';
-  password: string = 'aaaaaa';
-  confirmPassword: string = 'aaaaaa';
+  password: string = '123456';
+  confirmPassword: string = '123456';
 
   ngOnInit(): void {}
 
@@ -40,8 +40,13 @@ export class LoginRegisterComponent implements OnInit {
     }
     this.formObservable.subscribe(
       resData => {
-        this._router.navigate(['/']);
-        console.log(resData);
+        if (this.type === 'login') {
+          this._router.navigate(['']);
+        } else {
+          this._router.navigate(['login']);
+          this.showMessage('info');
+          console.log(resData);
+        }
       },
       error => {
         console.log(error);
@@ -50,9 +55,9 @@ export class LoginRegisterComponent implements OnInit {
     );
   }
 
-  showMessage(message: string) {
+  showMessage(message: string, severity: string = 'error') {
     this._messageService.add({
-      severity: 'error',
+      severity: severity,
       summary: 'Failed',
       detail: message,
     });
