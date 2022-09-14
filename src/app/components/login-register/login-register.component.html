@@ -1,30 +1,34 @@
 <div class="form-container shadow-1">
 
-<form action="" class="flex flex-column  ">
+<form (submit)="handleFormSubmit()" action="" class="flex flex-column  ">
   <h3>{{type.toUpperCase()}}</h3>
   <div>
-    <label for="">E-Mail</label>
-    <input type="email" placeholder="e.x: email@gmail.com">
+    <label for="">Email</label>
+    <input type="email" name="email" placeholder="e.x: email@gmail.com" [(ngModel)]="email" >
   </div>
   <ng-container *ngIf="type === 'register'">
     <div>
       <label for="">username</label>
-      <input type="text" placeholder="@username">
+      <input type="text"  placeholder="@username" name="username"
+      [(ngModel)]="username">
     </div>
 
     <div>
       <label for="">mobile</label>
-      <input type="tel" placeholder="e.x: 01020000000">
+      <input type="tel" placeholder="e.x: 01020000000" name="mobile"
+      [(ngModel)]="mobile">
     </div>
   </ng-container>
 
   <div>
     <label for="">Password</label>
-    <input type="password" placeholder="Enter your password">
+    <input type="password"  placeholder="Enter your password" name="password"
+    [(ngModel)]="password" >
   </div>
   <div *ngIf="type === 'register'">
     <label for="">Confirm Password</label>
-    <input type="password" placeholder="Confirm password you entered above">
+    <input type="password" name="confirmPassword"
+    [(ngModel)]="confirmPassword" placeholder="Confirm password you entered above">
   </div>
   <div *ngIf="type === 'login'">
     <p>Don't have an account?<a routerLink="../register">Create an account</a></p>
@@ -35,7 +39,9 @@
   <button (click)="handleFormSubmit()" type="button" class="text-white bg-primary
    mt-2  px-3 py-3 font-bold text-based border-round cursor-pointer transition-all
    transition-duration-200 outline-none border-none hover:bg-primary-600
-    active:bg-primary-800 ">{{type.toUpperCase()}}</button>
+    active:bg-primary-800 ">
+    {{type.toUpperCase()}}
+  </button>
   <p-messages></p-messages>
 </form>
 </div>
