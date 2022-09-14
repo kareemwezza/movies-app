@@ -19,7 +19,7 @@ export class LoginRegisterComponent implements OnInit {
   @Input() type: String = 'login';
   username: string = 'wezza';
   email: string = 'wezza@gmail.com';
-  mobile: string = '123456';
+  mobile: string = '12345678900';
   password: string = '123456';
   confirmPassword: string = '123456';
 
@@ -44,6 +44,7 @@ export class LoginRegisterComponent implements OnInit {
         console.log(resData);
       },
       error => {
+        console.log(error);
         this.showMessage(error);
       }
     );

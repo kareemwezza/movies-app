@@ -112,7 +112,13 @@ export class AuthService {
 
   // Error Handling Observable
   private _handleError(error: HttpErrorResponse) {
-    let errorMessage = 'Undue Error Occurred please try again later.';
+    let errorMessage: string;
+    console.log(error);
+    if (!error.error.message || !error.error) {
+      errorMessage = 'Undue Error Occurred please try again later.';
+    } else {
+      errorMessage = error.error.message;
+    }
     return throwError(() => errorMessage);
   }
 }
