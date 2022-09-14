@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import Movie from '../../types/movie';
 import { BreadcrumbModule } from 'primeng/breadcrumb';

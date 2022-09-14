@@ -1851,8 +1851,8 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
 }
 
 .p-button {
-  color: #1c2127;
-  background: #A5B4FC;
+  color: #fff;
+  background: var(--primary-color);
   border: 1px solid #A5B4FC;
   padding: 0.75rem 1.25rem;
   font-size: 1rem;
@@ -1860,18 +1860,18 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
   border-radius: 6px;
 }
 .p-button:enabled:hover {
-  background: #91a3fb;
-  color: #1c2127;
-  border-color: #91a3fb;
+  background: var(--primary-700);
+  color: #fff;
+  border-color: var(--primary-700);
 }
 .p-button:enabled:active {
-  background: #7d92fb;
-  color: #1c2127;
-  border-color: #7d92fb;
+  background: var(--primary-800);
+  color: #fff;
+  border-color: var(--primary-800);
 }
 .p-button.p-button-outlined {
   background-color: transparent;
-  color: #A5B4FC;
+  color: var(--primary-500);
   border: 1px solid;
 }
 .p-button.p-button-outlined:enabled:hover {

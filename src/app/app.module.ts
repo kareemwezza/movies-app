@@ -26,6 +26,7 @@ import { RegestierComponent } from './pages/regestier/regestier.component';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
 import { ActorsSectionComponent } from './components/actors-section/actors-section.component';
 import { MoviesSectionComponent } from './components/movies-section/movies-section.component';
+import { IntroComponent } from './components/intro/intro.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MoviesSectionComponent } from './components/movies-section/movies-secti
     ActorsSectionComponent,
     MoviesSectionComponent,
     MovieComponent,
-    FilmInfoComponent
+    FilmInfoComponent,
+    IntroComponent
   ],
   imports: [
     BrowserModule,

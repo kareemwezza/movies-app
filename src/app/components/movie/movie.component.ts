@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie',
@@ -7,7 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MovieComponent implements OnInit {
   @Input() title!: string;
-  constructor() {}
+  @Input() id: number = 1;
+  constructor(private _router: Router) {}
 
   ngOnInit(): void {}
+
+  handleMovieView(id: number) {
+    console.log('clicked');
+    this._router.navigate(['/movie', this.id]);
+  }
 }

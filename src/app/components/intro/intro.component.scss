@@ -1,0 +1,19 @@
+.intro {
+  background-color: #252a2b;
+}
+
+.box > div {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-radius: 5px;
+}
+
+.offers-image {
+  text-align: center;
+  img {
+    max-height: 300px;
+    max-width: 100%;
+    -webkit-user-drag: none;
+  }
+}
+
