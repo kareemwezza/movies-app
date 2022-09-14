@@ -24,6 +24,27 @@ a {
 }
 }
 
+.section-title {
+    font-size: 28px;
+    letter-spacing: .5px;
+    position: relative;
+
+    &::first-letter {
+      color: var(--primary-color);
+      font-size: 30px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 120px;
+      height: 2px;
+      background-color: peru;
+    }
+}
+
 input[type="submit"], button {
   cursor: pointer;
 }

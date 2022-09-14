@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import Movie from '../../types/movie';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
-import { MenuItem } from 'primeng/api';
+import { MenuItem, MessageService } from 'primeng/api';
+import { MoviesService } from '../../shared/services/movies.service';
 
 @Component({
   selector: 'app-filmInfo',
@@ -10,15 +11,17 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./filmInfo.component.scss'],
 })
 export class FilmInfoComponent implements OnInit {
-  movieId;
-  filmData: Movie;
+  movieId!: number;
+  movie: Movie;
 
   items: MenuItem[] = [];
 
-  constructor(private route: ActivatedRoute) {
-    this.movieId = this.route.snapshot.paramMap.get('id');
-
-    this.filmData = {
+  constructor(
+    private _route: ActivatedRoute,
+    private _moviesService: MoviesService,
+    private _messageService: MessageService
+  ) {
+    this.movie = {
       movieId: 5,
       movieName: 'Spider man No Way Home',
       category: 'Action, Adventure',
@@ -30,6 +33,25 @@ export class FilmInfoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.items = [{ label: 'Home' }, { label: 'Spider man No Way Home' }];
+    this.items = [
+      { label: 'Home', routerLink: '/home' },
+      { label: 'Spider man No Way Home' },
+    ];
+    this._route.paramMap.subscribe((params: ParamMap) => {
+      const id = params.get('id');
+      this.movieId = parseInt(id as unknown as string);
+      this._moviesService.getMovie(this.movieId).subscribe({
+        next: value => {
+          this.movie = value;
+        },
+        error: err => {
+          this._messageService.add({
+            severity: 'error',
+            summary: 'Failed',
+            detail: err.error.message,
+          });
+        },
+      });
+    });
   }
 }
