@@ -17,7 +17,7 @@
       </ng-container>
       <ng-container *ngIf="!loading">
           <div *ngFor="let item of list" class="lg:col-3 col">
-            <app-movie [title]="'Add Title here'"></app-movie>
+            <app-movie [title]="item.movieName"></app-movie>
           </div>
       </ng-container>
     </div>

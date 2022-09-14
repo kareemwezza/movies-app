@@ -18,7 +18,7 @@ export class MoviesService {
   }
 
   getRecentMovies() {
-    return this._http.get<Movie[]>(apiUrl);
+    return this._http.get<Movie[]>((`${apiUrl}/movies/movieList`));
   }
 
   getMovie(id: number) {
