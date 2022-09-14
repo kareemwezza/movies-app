@@ -56,19 +56,6 @@ export class AuthService {
   }
 
   register(email: string, username: string, mobile: string, password: string) {
-    // let body = new URLSearchParams();
-    // body.set('email', email);
-    // body.set('userName', username);
-    // body.set('mobile', mobile);
-    // body.set('password', password);
-    // return this._http
-    //   .post<AuthResponse>(
-    //     `${apiUrl}/user/register`,
-    //     body.toString(),
-    //     this.options
-    //   )
-    //   .pipe(catchError(this._handleError));
-    // ------------------------------------------
     const options2 = {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
     };
