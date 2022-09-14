@@ -33,13 +33,13 @@ export class FilmInfoComponent implements OnInit {
       this._moviesService.getMovie(this.movieId).subscribe({
         next: value => {
           this.movie = value;
-          this.items = [...this.items, { label: this.movie.movieName }];
+          this.items = [this.items[0], { label: this.movie.movieName }];
         },
         error: err => {
           this._messageService.add({
             severity: 'error',
             summary: 'Failed',
-            detail: err.error.message,
+            detail: 'Movie Can not be Found or Internal server error',
           });
         },
       });
