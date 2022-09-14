@@ -18,10 +18,10 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
   },
-  // {
-  //   path: '**',
-  //   redirectTo: 'home',
-  // },
+  {
+    path: '*',
+    redirectTo: 'home',
+  },
   {
     path: 'movie/:id',
     component: FilmInfoComponent,

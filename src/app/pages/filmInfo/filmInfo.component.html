@@ -1,5 +1,5 @@
 <div class="container">
-  <!-- <p-breadcrumb [model]="items"></p-breadcrumb> -->
+  <p-breadcrumb styleClass="breadcrumb" [model]="items"></p-breadcrumb>
 
   <div class="movie-preview">
     <div class="img-container">
@@ -22,10 +22,25 @@
       </div>
     </div>
   </div>
+  <div class="add-review">
+    <form class="review" action="">
+      <Label>Leave a Review</Label>
+      <textarea name="" id="" placeholder="Did you like the movie?"></textarea>
+      <input type="submit" value="Add Review">
+    </form>
+  </div>
   <div class="suggestions">
     <h3 class="suggestions-header">Suggestions</h3>
     <div class="suggestions-movies-container">
-      <!-- <app-movie></app-movie> -->
+      <app-movie></app-movie>
+      <app-movie></app-movie>
+      <app-movie></app-movie>
+      <app-movie></app-movie>
+      <app-movie></app-movie>
+      <app-movie></app-movie>
+      <app-movie></app-movie>
+      <app-movie></app-movie>
+      <app-movie></app-movie>
     </div>
   </div>
 </div>
