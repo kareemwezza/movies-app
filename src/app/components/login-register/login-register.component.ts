@@ -18,7 +18,7 @@ export class LoginRegisterComponent implements OnInit {
 
   @Input() type: String = 'login';
   username: string = 'wezza';
-  email: string = 'wezzass@gmail.com';
+  email: string = 'wezza@gmail.com';
   mobile: string = '12345678900';
   password: string = '123456';
   confirmPassword: string = '123456';

@@ -19,7 +19,7 @@
         <div class="grid">
           <ng-container *ngIf="list">
               <div *ngFor="let item of list" class="lg:col-2 ">
-                <app-movie [title]="item.movieName " [image]="item.image" [age]="item.age"></app-movie>
+                <app-movie [movie]="item" ></app-movie>
               </div>
           </ng-container>
       </div>
