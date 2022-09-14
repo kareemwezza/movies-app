@@ -18,11 +18,13 @@
       </div>
         <div class="grid">
           <ng-container *ngIf="list">
-              <div *ngFor="let item of list" class="lg:col-2 ">
+              <div *ngFor="let item of list" class="lg:col-3 ">
+                <div>
                 <app-movie [movie]="item" ></app-movie>
               <div *ngFor="let item of list" class="lg:col-3 ">
                 <div>
                 <app-movie [movie]="item" ></app-movie>
+
                 </div>
               </div>
           </ng-container>

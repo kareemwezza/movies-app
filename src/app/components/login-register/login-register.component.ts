@@ -16,14 +16,13 @@ export class LoginRegisterComponent implements OnInit {
     private _messageService: MessageService,
     private _router: Router
   ) {}
-
-
   @Input() type: String = 'login';
   username: string = 'wezza';
   email: string = 'wezza@gmail.com';
   mobile: string = '12345678900';
   password: string = '123456';
   confirmPassword: string = '123456';
+
   @Input() type: String = '';
   username: string = '';
   email: string = '';
@@ -50,6 +49,7 @@ export class LoginRegisterComponent implements OnInit {
             this.showMessage(error);
           }
         );
+
       }
     } else if (this.type === 'register') {
       if (!validateEmail(this.email)) {
@@ -81,6 +81,39 @@ export class LoginRegisterComponent implements OnInit {
             }
           );
       }
+
+      }
+    } else if (this.type === 'register') {
+      if (!validateEmail(this.email)) {
+        this.showMessage('Email is not Valid');
+      } else if (this.password.length < 6) {
+        this.showMessage('Password Lenght is short');
+      } else if (!confirmPassword(this.password, this.confirmPassword)) {
+        this.showMessage('Passwords Not Matched');
+      } else if (this.mobile.length < 11) {
+        this.showMessage('Mobile Number is not correct');
+      } else {
+        this._authService
+          .register(this.email, this.username, this.mobile, this.password)
+          .subscribe(
+            resData => {
+              this.showMessage(
+                'New Account created redirecting go to login...',
+                'success',
+                'Success'
+              );
+              setTimeout(() => {
+                this._router.navigate(['login']);
+              }, 3000);
+              console.log(resData);
+            },
+            error => {
+              console.log(error);
+              this.showMessage(error);
+            }
+          );
+      }
+
     }
   }
 
