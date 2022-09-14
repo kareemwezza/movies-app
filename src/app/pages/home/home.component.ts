@@ -26,7 +26,8 @@ export class HomeComponent implements OnInit {
           category: 'a',
           image: '',
           rating: '',
-          year: '1',
+          releasedYear: 2012,
+          age: 12,
         },
       ];
     }, 1000);

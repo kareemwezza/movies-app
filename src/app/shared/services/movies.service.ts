@@ -12,16 +12,19 @@ let { apiUrl } = environment;
 export class MoviesService {
   constructor(private _http: HttpClient) {}
 
-  getMovies(category?: string) {
-    category && (apiUrl = `${apiUrl}?category=${category}`);
-    return this._http.get<Movie[]>(apiUrl);
-  }
-
   getRecentMovies() {
-    return this._http.get<Movie[]>(apiUrl);
+    return this._http.get<Movie[]>(`${apiUrl}/movies/movieList`);
   }
 
   getMovie(id: number) {
-    return this._http.get<Movie>(apiUrl);
+    return this._http.get<Movie>(`${apiUrl}/movies/${id}`);
+  }
+
+  getMoviesByCategory(category: string) {
+    return this._http.get<Movie[]>(`${apiUrl}/category/${category}`);
+  }
+
+  getMovieByName(name: string) {
+    return this._http.get<Movie[]>(`${apiUrl}/movies/name/${name}`);
   }
 }

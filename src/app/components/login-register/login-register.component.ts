@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from '../../shared/services/auth.service';
 import { Observable } from 'rxjs';
 import { Message, MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'LoginRegister',
@@ -11,15 +12,16 @@ import { Message, MessageService } from 'primeng/api';
 export class LoginRegisterComponent implements OnInit {
   constructor(
     private _authService: AuthService,
-    private _messageService: MessageService
+    private _messageService: MessageService,
+    private _router: Router
   ) {}
 
   @Input() type: String = 'login';
-  username: string = '';
-  email: string = '';
-  mobile: string = '';
-  password: string = '';
-  confirmPassword: string = '';
+  username: string = 'wezza';
+  email: string = 'wezza@gmail.com';
+  mobile: string = '123456';
+  password: string = '123456';
+  confirmPassword: string = '123456';
 
   ngOnInit(): void {}
 
@@ -37,7 +39,10 @@ export class LoginRegisterComponent implements OnInit {
       );
     }
     this.formObservable.subscribe(
-      resData => console.log(resData),
+      resData => {
+        this._router.navigate(['/']);
+        console.log(resData);
+      },
       error => {
         this.showMessage(error);
       }
