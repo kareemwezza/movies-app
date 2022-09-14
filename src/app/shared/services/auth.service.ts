@@ -56,32 +56,40 @@ export class AuthService {
   }
 
   register(email: string, username: string, mobile: string, password: string) {
-    let body = new URLSearchParams();
-    body.set('email', email);
-    body.set('userName', username);
-    body.set('mobile', mobile);
-    body.set('password', password);
+    // let body = new URLSearchParams();
+    // body.set('email', email);
+    // body.set('userName', username);
+    // body.set('mobile', mobile);
+    // body.set('password', password);
+    // return this._http
+    //   .post<AuthResponse>(
+    //     `${apiUrl}/user/register`,
+    //     body.toString(),
+    //     this.options
+    //   )
+    //   .pipe(catchError(this._handleError));
+    // ------------------------------------------
+    const options2 = {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+    };
     return this._http
       .post<AuthResponse>(
         `${apiUrl}/user/register`,
-        body.toString(),
-        this.options
+        {
+          email: email,
+          userName: username,
+          mobile: mobile,
+          password: password,
+        },
+        options2
       )
       .pipe(catchError(this._handleError));
-    // return this._http
-    //   .post<AuthResponse>(`${apiUrl}/user/register`, {
-    //     email: email,
-    //     username: username,
-    //     mobile: mobile,
-    //     password: password,
-    //   })
-    //   .pipe(catchError(this._handleError));
   }
 
   logout() {
     this.user$.next(null);
     this._router.navigate(['/login']);
-    localStorage.removeItem('userDate');
+    localStorage.clear();
   }
 
   autoAuth() {
