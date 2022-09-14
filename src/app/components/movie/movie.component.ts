@@ -7,7 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MovieComponent implements OnInit {
   @Input() title!: string;
+  @Input() image!: string;
+  @Input() age!: number;
+  // @Input() width!: number;
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(
+
+  ): void {}
 }

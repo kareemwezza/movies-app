@@ -15,10 +15,13 @@
           <p-skeleton size="15rem"></p-skeleton>
         </div>
       </ng-container>
-      <ng-container *ngIf="!loading">
-          <div *ngFor="let item of list" class="lg:col-3 col">
-            <app-movie [title]="item.movieName"></app-movie>
-          </div>
-      </ng-container>
-    </div>
+      </div>
+        <div class="grid">
+          <ng-container *ngIf="list">
+              <div *ngFor="let item of list" class="lg:col-2 ">
+                <app-movie [title]="item.movieName " [image]="item.image" [age]="item.age"></app-movie>
+              </div>
+          </ng-container>
+      </div>
+    
   </div>
