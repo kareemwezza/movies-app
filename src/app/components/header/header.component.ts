@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../shared/services/auth.service';
+import User from '../../types/user.model';
 
 @Component({
   selector: 'app-header',
@@ -6,12 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  user!: User | null;
   showMobileMenu: boolean = false;
-  constructor() {}
+  constructor(private _authService: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._authService.user$.subscribe(value => {
+      this.user = value;
+    });
+  }
 
   toggleMenu() {
     this.showMobileMenu = !this.showMobileMenu;
+  }
+
+  logMeOut() {
+    this._authService.logout();
   }
 }

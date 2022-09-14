@@ -27,18 +27,18 @@ export interface AuthResponse {
 export class AuthService {
   constructor(private _http: HttpClient, private _router: Router) {}
   user$ = new BehaviorSubject<User | null>(null);
-
+  options = {
+    headers: new HttpHeaders().set(
+      'Content-Type',
+      'application/x-www-form-urlencoded'
+    ),
+  };
   login(email: string, password: string) {
-    let options = {
-      headers: new HttpHeaders().set(
-        'Content-Type',
-        'application/x-www-form-urlencoded'
-      ),
-    };
     let body = new URLSearchParams();
     body.set('email', email);
+    body.set('password', password);
     return this._http
-      .post<AuthResponse>(`${apiUrl}/login`, body.toString(), options)
+      .post<AuthResponse>(`${apiUrl}/login`, body.toString(), this.options)
       .pipe(
         catchError(this._handleError),
         tap(resData => {
@@ -56,26 +56,26 @@ export class AuthService {
   }
 
   register(email: string, username: string, mobile: string, password: string) {
+    let body = new URLSearchParams();
+    body.set('email', email);
+    body.set('userName', username);
+    body.set('mobile', mobile);
+    body.set('password', password);
     return this._http
-      .post<AuthResponse>(`${apiUrl}/user/register`, {
-        email: email,
-        username: username,
-        mobile: mobile,
-        password: password,
-      })
-      .pipe(
-        catchError(this._handleError),
-        tap(resData => {
-          this._handleAuthentication(
-            resData.user_id,
-            resData.username,
-            resData.email,
-            resData.mobile,
-            resData.access_token,
-            resData.expire
-          );
-        })
-      );
+      .post<AuthResponse>(
+        `${apiUrl}/user/register`,
+        body.toString(),
+        this.options
+      )
+      .pipe(catchError(this._handleError));
+    // return this._http
+    //   .post<AuthResponse>(`${apiUrl}/user/register`, {
+    //     email: email,
+    //     username: username,
+    //     mobile: mobile,
+    //     password: password,
+    //   })
+    //   .pipe(catchError(this._handleError));
   }
 
   logout() {
@@ -124,7 +124,7 @@ export class AuthService {
   private _handleError(error: HttpErrorResponse) {
     let errorMessage: string;
     console.log(error);
-    if (!error.error.message || !error.error) {
+    if (!error.error?.message || !error.error) {
       errorMessage = 'Undue Error Occurred please try again later.';
     } else {
       errorMessage = error.error.message;
