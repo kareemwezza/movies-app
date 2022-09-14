@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Movie from '../../types/movie';
 
 @Component({
   selector: 'app-movie',
@@ -7,16 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./movie.component.scss'],
 })
 export class MovieComponent implements OnInit {
-  @Input() title!: string;
-  @Input() id: number = 1;
-  @Input() image!: string;
-  @Input() age!: number;
+  @Input() movie!: Movie;
   constructor(private _router: Router) {}
 
   ngOnInit(): void {}
 
-  handleMovieView(id: number) {
+  handleMovieView() {
     console.log('clicked');
-    this._router.navigate(['/movie', this.id]);
+    this._router.navigate(['/movie', this.movie.movieId]);
   }
 }

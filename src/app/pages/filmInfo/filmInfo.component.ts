@@ -1,9 +1,10 @@
-import { Component, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import Movie from '../../types/movie';
-import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { MenuItem, MessageService } from 'primeng/api';
 import { MoviesService } from '../../shared/services/movies.service';
+import { AuthService } from '../../shared/services/auth.service';
+import User from '../../types/user.model';
 
 @Component({
   selector: 'app-filmInfo',
@@ -11,38 +12,28 @@ import { MoviesService } from '../../shared/services/movies.service';
   styleUrls: ['./filmInfo.component.scss'],
 })
 export class FilmInfoComponent implements OnInit {
+  items: MenuItem[] = [{ label: 'Home', routerLink: '/home' }];
+  user!: User | null;
   movieId!: number;
-  movie: Movie;
-
-  items: MenuItem[] = [];
+  movie!: Movie;
+  suggest!: Movie[];
 
   constructor(
     private _route: ActivatedRoute,
     private _moviesService: MoviesService,
-    private _messageService: MessageService
-  ) {
-    this.movie = {
-      movieId: 5,
-      movieName: 'Spider man No Way Home',
-      category: 'Action, Adventure',
-      image: '/../../../assets/images/spiderman.jpg',
-      releasedYear: 2022,
-      rating: '4.5',
-      age: 12,
-    };
-  }
+    private _messageService: MessageService,
+    private _authService: AuthService
+  ) {}
 
   ngOnInit() {
-    this.items = [
-      { label: 'Home', routerLink: '/home' },
-      { label: 'Spider man No Way Home' },
-    ];
+    this._authService.user$.subscribe(value => (this.user = value));
     this._route.paramMap.subscribe((params: ParamMap) => {
       const id = params.get('id');
       this.movieId = parseInt(id as unknown as string);
       this._moviesService.getMovie(this.movieId).subscribe({
         next: value => {
           this.movie = value;
+          this.items = [...this.items, { label: this.movie.movieName }];
         },
         error: err => {
           this._messageService.add({
@@ -50,6 +41,11 @@ export class FilmInfoComponent implements OnInit {
             summary: 'Failed',
             detail: err.error.message,
           });
+        },
+      });
+      this._moviesService.getRecentMovies().subscribe({
+        next: value => {
+          this.suggest = value;
         },
       });
     });
