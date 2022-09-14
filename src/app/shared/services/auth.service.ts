@@ -34,13 +34,15 @@ export class AuthService {
         catchError(this._handleError),
         tap(resData => {
           this._handleAuthentication(
+            
             resData.user_id,
             resData.username,
             resData.email,
             resData.mobile,
             resData.access_token,
             resData.expire
-          );
+          )
+          console.log(resData);
         })
       );
   }

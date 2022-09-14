@@ -4,8 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RegestierComponent } from './pages/regestier/regestier.component';
+import { SearchComponent } from './pages/search/search.component';
 
 const routes: Routes = [
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
   {
     path: 'login',
     component: LoginComponent,
@@ -15,8 +20,8 @@ const routes: Routes = [
     component: RegestierComponent,
   },
   {
-    path: 'home',
-    component: HomeComponent,
+    path: 'search',
+    component: SearchComponent,
   },
   {
     path: 'movie/:id',

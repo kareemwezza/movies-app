@@ -14,14 +14,16 @@
   color: white;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 30px;
   text-align: center;
+  height: 100%;
 
 }
 
 .topnav a:hover {
   background-color: rgba(0, 0, 0, 0.57);
   color: white;
+  
 }
 
 
@@ -42,4 +44,8 @@
 .fa 
 {
     font-size: 30px;
+}
+.search_bar
+{
+    margin-left: 700px;
 }

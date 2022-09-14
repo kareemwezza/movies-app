@@ -27,6 +27,7 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
 import { ActorsSectionComponent } from './components/actors-section/actors-section.component';
 import { MoviesSectionComponent } from './components/movies-section/movies-section.component';
 import { IntroComponent } from './components/intro/intro.component';
+import { SearchComponent } from './pages/search/search.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { IntroComponent } from './components/intro/intro.component';
     MoviesSectionComponent,
     MovieComponent,
     FilmInfoComponent,
-    IntroComponent
+    IntroComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,7 @@ import { IntroComponent } from './components/intro/intro.component';
     MessageModule,
     SkeletonModule,
     ChipModule,
-    BreadcrumbModule
+    BreadcrumbModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],

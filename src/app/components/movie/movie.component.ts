@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 export class MovieComponent implements OnInit {
   @Input() title!: string;
   @Input() id: number = 1;
+  @Input() image!: string;
+  @Input() age!: number;
   constructor(private _router: Router) {}
 
   ngOnInit(): void {}
