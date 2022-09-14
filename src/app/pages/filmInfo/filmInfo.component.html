@@ -1,0 +1,46 @@
+<div class="container">
+  <p-breadcrumb styleClass="breadcrumb" [model]="items"></p-breadcrumb>
+
+  <div class="movie-preview">
+    <div class="img-container">
+      <img src="./../../../assets/images/spiderman.jpg" alt="">
+      <div class="watch"></div>
+    </div>
+    <div class="movie-desc">
+      <h3 class="movie-title">
+          {{filmData.movieName}}
+      </h3>
+      <div class="movie-details">
+        <span>{{filmData.releasedYear}}</span>
+        <span>{{filmData.rating}} / 5.0
+          <img class="rating" src="./../../../assets/images/star.png" alt="">
+        </span>
+      </div>
+      <div class="movie-more-details">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet quis explicabo aliquam sequi non autem, neque quas distinctio magni quidem et quam necessitatibus eligendi, molestiae error animi dolore quos ad.</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut aliquid quod minus consequatur ab voluptatem nobis molestiae, tempore sed eligendi adipisci impedit officiis, voluptatibus minima dolor unde, provident eos laboriosam.</p>
+      </div>
+    </div>
+  </div>
+  <div class="add-review">
+    <form class="review" action="">
+      <Label>Leave a Review</Label>
+      <textarea name="" id="" placeholder="Did you like the movie?"></textarea>
+      <input type="submit" value="Add Review">
+    </form>
+  </div>
+  <div class="suggestions">
+    <h3 class="suggestions-header">Suggestions</h3>
+    <div class="suggestions-movies-container">
+      <app-movie></app-movie>
+      <app-movie></app-movie>
+      <app-movie></app-movie>
+      <app-movie></app-movie>
+      <app-movie></app-movie>
+      <app-movie></app-movie>
+      <app-movie></app-movie>
+      <app-movie></app-movie>
+      <app-movie></app-movie>
+    </div>
+  </div>
+</div>

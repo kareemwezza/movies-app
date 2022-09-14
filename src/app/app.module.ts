@@ -1,3 +1,5 @@
+import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { FilmInfoComponent } from './pages/filmInfo/filmInfo.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -38,6 +40,7 @@ import { MoviesSectionComponent } from './components/movies-section/movies-secti
     ActorsSectionComponent,
     MoviesSectionComponent,
     MovieComponent,
+    FilmInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { MoviesSectionComponent } from './components/movies-section/movies-secti
     MessageModule,
     SkeletonModule,
     ChipModule,
+    BreadcrumbModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],

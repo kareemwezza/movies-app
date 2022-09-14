@@ -1,0 +1,206 @@
+:host {
+    ::ng-deep .breadcrumb {
+        background: var(--surface-100);
+        width: 100%;
+    }
+
+    @media (min-width: 770px) {
+        ::ng-deep .breadcrumb {
+            width: 100%;
+        }
+    }
+
+}
+
+.container {
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1024px;
+
+    .movie-preview {
+        .img-container {
+            // width: 600px;
+            height: 400px;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+
+            &:after {
+                content: '14+';
+                position: absolute;
+                background-color: rgba(28, 28, 37, 0.9);
+                top: 15px;
+                right: 15px;
+                padding: 0.25rem 1.3rem;
+                border-radius: 5px;
+            }
+
+            .watch {
+                clip-path: polygon(0 0, 100% 50%, 0 100%);
+                width: 50px;
+                height: 50px;
+                background: #fff;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                display: none;
+            }
+
+            &:hover {
+                cursor: pointer;
+
+                img {
+
+                    opacity: .4;
+                }
+
+                .watch {
+                    display: block;
+                }
+
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: 20% 20%;
+            }
+
+        }
+
+        .movie-desc {
+            margin-top: 24px;
+
+            .movie-title {
+                font-size: 34px;
+            }
+
+            .movie-details {
+                display: flex;
+                gap: 1rem;
+                margin-top: 10px;
+
+                span {
+                    background: var(--gray-600);
+                    padding: .5rem 1rem;
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+
+                    .rating {
+                        width: 16px;
+                        position: relative;
+                        top: -1px;
+                    }
+                }
+            }
+
+            .movie-more-details {
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                max-width: 600px;
+            }
+        }
+    }
+
+    .suggestions {
+
+        .suggestions-header {
+            font-size: 28px;
+            letter-spacing: .5px;
+            position: relative;
+
+            &::first-letter {
+                color: var(--primary-color);
+                font-size: 30px;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 120px;
+                height: 2px;
+                background-color: peru;
+            }
+        }
+
+        .suggestions-movies-container {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            overflow: hidden;
+            // overflow-x: scroll;
+
+        }
+    }
+
+    .review {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        position: relative;
+
+        label {
+            margin-bottom: 5px;
+            font-size: 12px;
+            padding-left: 2px;
+            opacity: .8;
+            text-transform: uppercase;
+        }
+
+        textarea {
+            padding: 0.8rem 0.8rem;
+            outline: none;
+            border: none;
+            width: 100%;
+            height: 100%;
+            background: var(--gray-700);
+            border-radius: 8px;
+            transition: outline-width 100ms;
+            height: 120px;
+            resize: none;
+
+            &:focus {
+                outline: 3px solid rgba(28, 128, 207, 0.20);
+            }
+        }
+        input[type="submit"] {
+            width: fit-content;
+            background: var(--primary-color);
+            outline: none;
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            align-self: flex-end;
+            margin-top: 5px;
+        }
+    }
+}
+
+@media (min-width: 770px) {
+    .movie-preview {
+        .img-container {
+            width: 100%;
+            height: 500px;
+        }
+    }
+
+
+}
+
+@media (max-width: 770px) {
+    h3.movie-title {
+        font-size: 28px !important;
+    }
+}
