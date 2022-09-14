@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { catchError, throwError, tap, BehaviorSubject } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 
 import { environment } from '../../../environments/environment';
 import User from '../../types/user.model';
@@ -25,23 +29,27 @@ export class AuthService {
   user$ = new BehaviorSubject<User | null>(null);
 
   login(email: string, password: string) {
+    let options = {
+      headers: new HttpHeaders().set(
+        'Content-Type',
+        'application/x-www-form-urlencoded'
+      ),
+    };
+    let body = new URLSearchParams();
+    body.set('email', email);
     return this._http
-      .post<AuthResponse>(`${apiUrl}/login`, {
-        email: email,
-        password: password,
-      })
+      .post<AuthResponse>(`${apiUrl}/login`, body.toString(), options)
       .pipe(
         catchError(this._handleError),
         tap(resData => {
           this._handleAuthentication(
-            
             resData.user_id,
             resData.username,
             resData.email,
             resData.mobile,
             resData.access_token,
             resData.expire
-          )
+          );
           console.log(resData);
         })
       );
