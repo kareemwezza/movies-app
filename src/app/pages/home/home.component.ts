@@ -19,8 +19,17 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.loading = false;
-      
-      
+      this.recentMovies = [
+        {
+          movieName: 'A',
+          movieId: 1,
+          category: 'a',
+          image: '',
+          rating: '',
+          releasedYear: 2012,
+          age: 12,
+        },
+      ];
     }, 1000);
     this._actorService.getActors().subscribe({
       next: value => {

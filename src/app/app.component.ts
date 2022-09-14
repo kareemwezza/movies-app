@@ -9,12 +9,14 @@ import { AuthService } from './shared/services/auth.service';
 })
 export class AppComponent {
   title = 'movies-app';
+  user!: any;
   constructor(
     private _authService: AuthService,
     private primengConfig: PrimeNGConfig
   ) {}
   ngOnInit() {
     this._authService.autoAuth();
+    this._authService.user$.subscribe(value => (this.user = value));
     this.primengConfig.ripple = true;
   }
 }

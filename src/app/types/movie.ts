@@ -3,14 +3,15 @@ import Actor from './actor';
 export default interface Movie {
   movieId: number;
   movieName: string;
+  age: number;
   directorName?: string;
   category: string;
   image: string;
   description?: string;
-  year: string;
-  age:number;
+  releasedYear: number;
   rating: string;
   time?: string;
   video?: string;
   actors?: Actor[];
+  addedDate?: any;
 }
