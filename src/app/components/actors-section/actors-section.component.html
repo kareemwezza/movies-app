@@ -24,9 +24,9 @@
       </ng-container>
     </div>    
   </div>
-  <div class="grid">
+  <div class="actors-container">
     <ng-container *ngIf="list">
-        <div *ngFor="let item of list" class="lg:col-2 ">
+        <div *ngFor="let item of list" >
         <app-actor [actor]="item"></app-actor>
         </div>
     </ng-container>

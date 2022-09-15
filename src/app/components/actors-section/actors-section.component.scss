@@ -1,0 +1,10 @@
+.actors-container {
+    display: flex;
+    max-width: 1024px;
+    flex-wrap: wrap;
+    gap: 10px 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+}
