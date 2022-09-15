@@ -1,8 +1,10 @@
 <div class="container" >
   <p-breadcrumb styleClass="breadcrumb" [model]="items"></p-breadcrumb>
   <p-messages></p-messages>
-  <ng-container *ngIf="!movie">
-    <p-skeleton size="90vw"></p-skeleton>
+  <ng-container  *ngIf="!movie">
+    <div class="movie-preview">
+      <p-skeleton size="90vw"></p-skeleton>
+    </div>
   </ng-container>
   <div class="movie-preview" *ngIf="movie">
     <div class="img-container" (click)="showDialog()">
@@ -39,7 +41,7 @@
   </div>
   <div class="suggestions">
     <h3 class="suggestions-header">Suggestions</h3>
-    <div class="suggestions-movies-container" *ngIf="suggest">
+    <div class="suggestions-movies-container flex-wrap sm:justify-content-start" *ngIf="suggest">
       <app-movie *ngFor="let i of suggest" [movie]="i"></app-movie>
     </div>
   </div>

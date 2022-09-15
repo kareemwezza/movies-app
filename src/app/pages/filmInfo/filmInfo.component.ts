@@ -35,6 +35,7 @@ export class FilmInfoComponent implements OnInit {
     this._authService.user$.subscribe(value => (this.user = value));
     this._route.paramMap.subscribe((params: ParamMap) => {
       const id = params.get('id');
+      this._messageService.clear();
       this.movieId = parseInt(id as unknown as string);
       this._moviesService.getMovie(this.movieId).subscribe({
         next: value => {
