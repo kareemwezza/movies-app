@@ -27,6 +27,7 @@
 
       </p-dialog>
     </div>
+    <app-actors-section header="Actors In Movie" [loading]="false" [list]="movieActors"></app-actors-section>
   </div>
   <div class="add-review">
       <div *ngIf="!user"><p>Leave a Review? Login in to add your review. <a class="text-primary" [routerLink]="['/login']">Login</a></p></div>

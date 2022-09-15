@@ -7,6 +7,7 @@ import { MenuItem, MessageService } from 'primeng/api';
 import { MoviesService } from '../../shared/services/movies.service';
 import { AuthService } from '../../shared/services/auth.service';
 import User from '../../types/user.model';
+import Actor from '../../types/actor';
 
 @Component({
   selector: 'app-filmInfo',
@@ -21,7 +22,7 @@ export class FilmInfoComponent implements OnInit {
   suggest!: Movie[];
   display: boolean = false;
   watchUrl!: SafeResourceUrl;
-
+  movieActors!: Actor[];
   constructor(
     private _route: ActivatedRoute,
     private _moviesService: MoviesService,
@@ -38,6 +39,7 @@ export class FilmInfoComponent implements OnInit {
       this._moviesService.getMovie(this.movieId).subscribe({
         next: value => {
           this.movie = value;
+          value.actors && (this.movieActors = value.actors);
           this.watchUrl = this._sanitizer.bypassSecurityTrustResourceUrl(
             value.video as unknown as string
           );
