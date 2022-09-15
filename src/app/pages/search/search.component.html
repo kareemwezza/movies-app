@@ -1,23 +1,25 @@
 <div class="topnav">
-        <div class="search-container">
-            <form  >
+  <div class="search-container">
+    <form>
 
-              <input type="text" placeholder="Search.." name="search" class ="search_input" id="input_value" #input_value>
-              <button type="submit" (click)="myFunction(input_value.value)" class="search_icon"><i class="fa fa-search "></i></button>
-            </form>
-        </div>
+      <div>
+        <input type="text" placeholder="Search.." name="search" class="search_input" id="input_value" #input_value>
+      <button type="submit" (click)="myFunction(input_value.value)" class="search_icon"><i
+          class="fa fa-search "></i></button>
+      </div>
+    </form>
+  </div>
 
 </div>
 
 <div *ngIf="randomfilm" class="movieshow">
-    <app-movie [movie]="randomfilm" class="moviecomponent"> </app-movie>
+  <app-movie [movie]="randomfilm" class="moviecomponent"> </app-movie>
 </div>
 
-<div class="grid">
-    <ng-container *ngIf="list">
-        <div *ngFor="let item of list" class="lg:col-2">
-          <app-movie [movie]="item"></app-movie>
-        </div>
-    </ng-container>
+<div class="searchArr">
+  <ng-container *ngIf="list">
+    <div *ngFor="let item of list" class="lg:col-2">
+      <app-movie [movie]="item"></app-movie>
+    </div>
+  </ng-container>
 </div>
-
