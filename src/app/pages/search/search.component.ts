@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit {
   constructor(private _moviesService: MoviesService ) { }
 
   ngOnInit(): void {
-    let number=this.randomIntFromInterval(11,16);
+    let number=this.randomIntFromInterval(1,6);
     console.log(number);
     this._moviesService.getMovie(number).subscribe({
       next: value => {
