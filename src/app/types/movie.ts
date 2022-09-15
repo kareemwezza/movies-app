@@ -1,6 +1,7 @@
 import Actor from './actor';
 
 export default interface Movie {
+  id?: number;
   movieId: number;
   movieName: string;
   age: number;

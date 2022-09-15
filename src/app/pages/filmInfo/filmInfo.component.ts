@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 import Movie from '../../types/movie';
 import { MenuItem, MessageService } from 'primeng/api';
 import { MoviesService } from '../../shared/services/movies.service';
@@ -17,12 +19,15 @@ export class FilmInfoComponent implements OnInit {
   movieId!: number;
   movie!: Movie;
   suggest!: Movie[];
+  display: boolean = false;
+  watchUrl!: SafeResourceUrl;
 
   constructor(
     private _route: ActivatedRoute,
     private _moviesService: MoviesService,
     private _messageService: MessageService,
-    private _authService: AuthService
+    private _authService: AuthService,
+    private _sanitizer: DomSanitizer
   ) {}
 
   ngOnInit() {
@@ -33,6 +38,9 @@ export class FilmInfoComponent implements OnInit {
       this._moviesService.getMovie(this.movieId).subscribe({
         next: value => {
           this.movie = value;
+          this.watchUrl = this._sanitizer.bypassSecurityTrustResourceUrl(
+            value.video as unknown as string
+          );
           this.items = [this.items[0], { label: this.movie.movieName }];
         },
         error: err => {
@@ -49,5 +57,9 @@ export class FilmInfoComponent implements OnInit {
         },
       });
     });
+  }
+
+  showDialog() {
+    this.display = true;
   }
 }

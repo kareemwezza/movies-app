@@ -13,6 +13,7 @@ import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { MessageService } from 'primeng/api';
 import { ChipModule } from 'primeng/chip';
+import { DialogModule } from 'primeng/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -62,6 +63,7 @@ import { ActorprofileComponent } from './components/actorprofile/actorprofile.co
     SkeletonModule,
     ChipModule,
     BreadcrumbModule,
+    DialogModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],
