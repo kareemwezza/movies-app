@@ -5,7 +5,7 @@
     <p-skeleton size="90vw"></p-skeleton>
   </ng-container>
   <div class="movie-preview" *ngIf="movie">
-    <div class="img-container">
+    <div class="img-container" (click)="showDialog()">
       <img [src]="movie.image" alt="">
       <div class="watch"></div>
     </div>
@@ -22,6 +22,10 @@
       <div class="movie-more-details">
         <p>{{movie.description}}</p>
       </div>
+      <p-dialog [header]="movie.movieName" [(visible)]="display" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}">
+        <iframe [src]='watchUrl' frameborder="0" width="100%" height="300px" allowfullscreen></iframe>
+
+      </p-dialog>
     </div>
   </div>
   <div class="add-review">
