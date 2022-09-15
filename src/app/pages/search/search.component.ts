@@ -9,18 +9,16 @@ import Movie from 'src/app/types/movie';
 })
 export class SearchComponent implements OnInit {
   loading: boolean = true;
-  @Input() header: string = 'Result MOvies';
-  randomfilm!: Movie;
+  @Input() header: string = 'Search Results In Movies:';
+  randomfilm!: Movie | null;
   list!: Movie[];
 
   constructor(private _moviesService: MoviesService) {}
 
   ngOnInit(): void {
     let number = this.randomIntFromInterval(1, 6);
-    console.log(number);
     this._moviesService.getMovie(number).subscribe({
       next: value => {
-        console.log(value.movieId);
         this.randomfilm = value;
         this.randomfilm.movieId = value.id as unknown as number;
       },
@@ -29,9 +27,8 @@ export class SearchComponent implements OnInit {
   myFunction(text: string) {
     this._moviesService.getMovieByName(text).subscribe({
       next: value => {
-        console.log(value);
+        this.randomfilm = null;
         this.list = value;
-        // this.loading = false;
       },
     });
   }

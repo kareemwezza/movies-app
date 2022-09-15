@@ -1,9 +1,9 @@
 <div class="topnav">
-  <div class="search-container">
+  <div class="search-container w-full">
     <form>
 
-      <div>
-        <input type="text" placeholder="Search.." name="search" class="search_input" id="input_value" #input_value>
+      <div class="relative w-full">
+        <input type="text" placeholder="Search.." name="search" class="search_input w-full" id="input_value" #input_value>
       <button type="submit" (click)="myFunction(input_value.value)" class="search_icon"><i
           class="fa fa-search "></i></button>
       </div>
@@ -13,13 +13,17 @@
 </div>
 
 <div *ngIf="randomfilm" class="movieshow">
-  <app-movie [movie]="randomfilm" class="moviecomponent"> </app-movie>
+  <app-movie [movie]="randomfilm" class="moviecomponent" [className]="'search-card'" style="width: 100%;"> </app-movie>
 </div>
 
-<div class="searchArr">
-  <ng-container *ngIf="list">
-    <div *ngFor="let item of list" class="lg:col-2">
-      <app-movie [movie]="item"></app-movie>
-    </div>
-  </ng-container>
+<div class="container">
+  <h2 *ngIf="list" class="section-title">{{header}}</h2>
+  <div class="searchArr">
+    <ng-container *ngIf="list">
+      <div *ngFor="let item of list" class="col">
+        <app-movie [movie]="item"></app-movie>
+      </div>
+    </ng-container>
+  </div>
+
 </div>

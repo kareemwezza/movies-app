@@ -35,7 +35,7 @@
   .header-rt-content {
     position: absolute;
     top: 100%;
-    right: 3.5rem;
+    right: 1.5rem;
     width: 30%;
     flex-direction: column;
     background: #23232e;
@@ -43,6 +43,7 @@
     border-bottom-right-radius: 16px;
     border-bottom-left-radius: 16px;
     display: none!important;
+    min-width: 40%;
     div {
       margin-bottom: 1rem;
       &:not(:last-child) {

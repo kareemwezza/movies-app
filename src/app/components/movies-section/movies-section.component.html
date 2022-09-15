@@ -1,4 +1,4 @@
-  <div class="container mt-8 pt-5 pb-5 flex-column">
+  <div class="container mt-8 pt-5 pb-5 flex-column overflow-hidden">
     <h2 class="mb-6 section-title">{{header}}</h2>
     <div class="grid">
       <ng-container *ngIf="loading">
@@ -15,14 +15,10 @@
           <p-skeleton size="15rem"></p-skeleton>
         </div>
       </ng-container>
-      </div>
-        <div class="movies-list">
-          <ng-container *ngIf="list">
-              <div *ngFor="let item of list" class="lg:col-3 ">
-                <div>
-                <app-movie [movie]="item" ></app-movie>
-                </div>
-              </div>
-          </ng-container>
-      </div>
+      <ng-container *ngIf="list">
+        <div *ngFor="let item of list" class="lg:col-3 col">
+            <app-movie [movie]="item" ></app-movie>
+        </div>
+      </ng-container>
+    </div>
   </div>

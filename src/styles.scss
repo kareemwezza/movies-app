@@ -71,3 +71,11 @@ input[type="submit"], button {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.search-card {
+  width: 100%;
+  .moviediv {
+    width: 100% !important;
+    height: 400px !important;
+  }
+}
