@@ -3,13 +3,9 @@
     <div class="container">
       <h2><b>{{actor.actorName}}</b></h2>
     </div >
-  </div>
-  <div class="grid mb-5 container">
-    <ng-container *ngIf="list">
-        <div *ngFor="let item of list" class="lg:col-2 ">
-          <app-movie [movie]="item" ></app-movie>
-        </div>
-    </ng-container>
 </div>
-
-
+<div class="movies">
+  <ng-container *ngIf="list">
+    <app-movies-section [list]="list" [header]="'Movies:'" [loading]="loading"></app-movies-section>
+  </ng-container>
+</div>

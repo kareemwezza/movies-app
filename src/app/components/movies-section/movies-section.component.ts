@@ -8,8 +8,8 @@ import Movie from '../../types/movie';
 })
 export class MoviesSectionComponent implements OnInit {
   @Input() header: string = 'Top Movies';
-  @Input() loading: boolean = true;
-  @Input() list!: Movie[] ;
+  @Input() loading: boolean = false;
+  @Input() list!: Movie[];
   constructor() {}
 
   ngOnInit(): void {}

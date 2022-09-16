@@ -40,7 +40,6 @@ export class LoginRegisterComponent implements OnInit {
             }
           },
           error => {
-            console.log(error);
             this.showMessage(error);
           }
         );
@@ -59,18 +58,17 @@ export class LoginRegisterComponent implements OnInit {
           .register(this.email, this.username, this.mobile, this.password)
           .subscribe(
             resData => {
+              this._messageService.clear();
               this.showMessage(
-                'New Account created redirecting go to login...',
+                'Confirmation E-mail send. redirecting go to login...',
                 'success',
                 'Success'
               );
               setTimeout(() => {
                 this._router.navigate(['login']);
               }, 3000);
-              console.log(resData);
             },
             error => {
-              console.log(error);
               this.showMessage(error);
             }
           );

@@ -50,7 +50,6 @@ export class AuthService {
             resData.access_token,
             resData.expire
           );
-          console.log(resData);
         })
       );
   }

@@ -12,27 +12,23 @@ import Actor from 'src/app/types/actor';
 export class HomeComponent implements OnInit {
   loading: boolean = true;
   recentMovies: Movie[] = [];
-  actors:Actor[] = [];
+  actors: Actor[] = [];
   constructor(
     private _actorService: ActorsService,
     private _moviesService: MoviesService
   ) {}
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.loading = false;
-    }, 1000);
     this._actorService.getActors().subscribe({
       next: value => {
-        console.log(value);
-        this.actors=value;
-
+        this.actors = value;
+        this.loading = false;
       },
     });
     this._moviesService.getRecentMovies().subscribe({
       next: value => {
         console.log(value);
-        this.recentMovies=value;
+        this.recentMovies = value;
       },
     });
   }

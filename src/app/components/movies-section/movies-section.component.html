@@ -1,18 +1,18 @@
   <div class="container mt-8 pt-5 pb-5 flex-column overflow-hidden">
     <h2 class="mb-6 section-title">{{header}}</h2>
-    <div class="grid">
+    <div class="grid flex-wrap">
       <ng-container *ngIf="loading">
-        <div class="p-1 lg:col-3 col">
-          <p-skeleton size="15rem"></p-skeleton>
+        <div class="lg:col-3 col">
+          <p-skeleton shape="rectangle" height="250px" width="200px"></p-skeleton>
         </div>
         <div class="lg:col-3 col">
-          <p-skeleton size="15rem"></p-skeleton>
+          <p-skeleton shape="rectangle" height="250px" width="200px"></p-skeleton>
         </div>
         <div class="lg:col-3 col">
-          <p-skeleton size="15rem"></p-skeleton>
+          <p-skeleton shape="rectangle" height="250px" width="200px"></p-skeleton>
         </div>
         <div class="lg:col-3 col">
-          <p-skeleton size="15rem"></p-skeleton>
+          <p-skeleton shape="rectangle" height="250px" width="200px"></p-skeleton>
         </div>
       </ng-container>
       <ng-container *ngIf="list">
